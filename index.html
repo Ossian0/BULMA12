@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BULMA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script defer>
+        document.addEventListener('DOMContentLoaded', () => {
+    
+            const loginModal = document.querySelector("#loginModal");
+            const loginButton = document.querySelector("#loginButton");
+            const closeLogin = document.querySelector("#closeLogin");
+
+            loginButton.addEventListener("click", () => {
+                loginModal.classList.add("is-active");
+            });
+
+            closeLogin.addEventListener("click", () => {
+                loginModal.classList.remove("is-active");
+            });
+
+            document.querySelector("#loginForm").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const username = document.querySelector("#username").value;
+                const password = document.querySelector("#password").value;
+
+                if (username === "admin" && password === "password") {
+                    window.location.href = "admin.html"; 
+                } else {
+                    alert("Fel användarnamn eller lösenord.");
+                }
+            });
+
+            const registerModal = document.querySelector("#registerModal");
+            const registerButton = document.querySelector("#registerButton");
+            const closeRegister = document.querySelector("#closeRegister");
+
+            registerButton.addEventListener("click", () => {
+                registerModal.classList.add("is-active");
+            });
+
+            closeRegister.addEventListener("click", () => {
+                registerModal.classList.remove("is-active");
+            });
+
+            document.querySelector("#registerForm").addEventListener("submit", (e) => {
+                e.preventDefault();
+                const newUsername = document.querySelector("#newUsername").value;
+                const email = document.querySelector("#email").value;
+                const newPassword = document.querySelector("#newPassword").value;
+
+                alert(`Konto skapat för: ${newUsername}`);
+                registerModal.classList.remove("is-active");
+            });
+
+            const contactModal = document.querySelector("#contactModal");
+            const contactButton = document.querySelector("#contactButton");
+            const closeContact = document.querySelector("#closeContact");
+
+            contactButton.addEventListener("click", () => {
+                contactModal.classList.add("is-active");
+            });
+
+            closeContact.addEventListener("click", () => {
+                contactModal.classList.remove("is-active");
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar is-primary">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">historia</a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item button is-primary" id="loginButton">Logga in</a>
+                <a class="navbar-item button is-link" id="registerButton">Skapa konto</a>
+                <a class="navbar-item button is-warning" id="contactButton">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">Välkommen till vår webbplats</h1>
+                <h2 class="subtitle">Vi erbjuder att öva på historia</h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="title is-4">Om oss</h2>
+                    <p>Vi är smarta </p>
+                </div>
+                <div class="column">
+                    <h2 class="title is-4">Bästa webbsidan</h2>
+                    <p>Du kommer lära dig allt om historia</p>
+                </div>
+                <div class="column">
+                    <h2 class="title is-4">Kom igång nuuu</h2>
+                    <p>Skapa konto för öva lite på historia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal" id="contactModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Kontakt</p>
+                <button class="delete" id="closeContact" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <p><strong>E-post:</strong> support@teknikum.com</p>
+                <p><strong>Telefon:</strong> 013123456789</p>
+                <p><strong>Adress:</strong> teknikum</p>
+            </section>
+        </div>
+    </div> 
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>historia</strong> av <a href="#">TEknikum</a>. HEYS
+            </p>
+            <p>
+                <a href="#">YAs</a> | <a href="#">vilkor</a> | <a href="#">TEknikum</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
