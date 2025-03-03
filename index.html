@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script defer>
         document.addEventListener('DOMContentLoaded', () => {
-    
             const loginModal = document.querySelector("#loginModal");
             const loginButton = document.querySelector("#loginButton");
             const closeLogin = document.querySelector("#closeLogin");
+            const adminUsername = "admin";
+            const adminPassword = "password";
 
             loginButton.addEventListener("click", () => {
                 loginModal.classList.add("is-active");
@@ -25,7 +26,8 @@
                 const username = document.querySelector("#username").value;
                 const password = document.querySelector("#password").value;
 
-                if (username === "admin" && password === "password") {
+                if (username === adminUsername && password === adminPassword) {
+                    alert("Välkommen, Admin!");
                     window.location.href = "admin.html"; 
                 } else {
                     alert("Fel användarnamn eller lösenord.");
@@ -110,20 +112,38 @@
         </div>
     </section>
 
-    <div class="modal" id="contactModal">
+   
+    <div class="modal" id="loginModal">
         <div class="modal-background"></div>
         <div class="modal-card">
             <header class="modal-card-head">
-                <p class="modal-card-title">Kontakt</p>
-                <button class="delete" id="closeContact" aria-label="close"></button>
+                <p class="modal-card-title">Logga in</p>
+                <button class="delete" id="closeLogin" aria-label="close"></button>
             </header>
             <section class="modal-card-body">
-                <p><strong>E-post:</strong> support@teknikum.com</p>
-                <p><strong>Telefon:</strong> 013123456789</p>
-                <p><strong>Adress:</strong> teknikum</p>
+                <form id="loginForm">
+                    <div class="field">
+                        <label class="label">Användarnamn</label>
+                        <div class="control">
+                            <input class="input" type="text" id="username" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Lösenord</label>
+                        <div class="control">
+                            <input class="input" type="password" id="password" required>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <button class="button is-primary" type="submit">Logga in</button>
+                        </div>
+                    </div>
+                </form>
             </section>
         </div>
-    </div> 
+    </div>
+
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
